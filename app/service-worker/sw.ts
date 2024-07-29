@@ -9,7 +9,9 @@ import { ExpirationPlugin } from 'workbox-expiration'
 declare let self: ServiceWorkerGlobalScope
 
 // self.__WB_MANIFEST is the default injection point
-precacheAndRoute(self.__WB_MANIFEST)
+precacheAndRoute(self.__WB_MANIFEST, {
+    ignoreURLParametersMatching: [/.*/],
+})
 
 // clean old assets
 cleanupOutdatedCaches()
